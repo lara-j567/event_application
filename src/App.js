@@ -1,46 +1,81 @@
 import './App.css';
 import {useState} from "react";
 import $ from "jquery";
+import DisplayInformation from "./DisplayInformation";
 
 function App() {
     
     const [artistName, setArtistName] = useState("");
     const [artistInformation, setArtistInformation] = useState({});
     const [artistEvents, setArtistEvents] = useState([{}]);
+    const [btnClick, setBtnClick] = useState(false);
+    /*this id is valid for 3 months.i.e: till september.
+    * If you want to run this program after 2nd september ,request new url on this url:https://help.bandsintown.com/en/ */
+    const app_id = 'aa817e4ec06a8d24666ea63289868366';
     
     
     const fetchData = () => {
         
-        ///const URL =`https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0#/ArtistData/artists/${artistName}?app_id=aa817e4ec06a8d24666ea63289868366`;
-        const URL = `https://rest.bandsintown.com/artists/${artistName}?app_id=aa817e4ec06a8d24666ea63289868366`;
+        const URL1 = `https://rest.bandsintown.com/artists/${artistName}?app_id=${app_id}`;
+        const URL2 = `https://rest.bandsintown.com/artists/${artistName}/events?app_id=${app_id}`;
+        
         return new Promise((resolve, reject) => {
+            
             
             $.ajax({
                 
-                url: URL,
+                url: URL1,
                 async: false,
                 type: "get",
                 dataType: "json",
                 
                 success: function (result) {
                     
-                    console.log(artistName);
+                    
+                    setBtnClick(true);
                     console.log(result);
                     setArtistInformation(result);
-                    console.log('set artist information');
-                    console.log(artistInformation);
                     
                 },
                 
                 error: function (error) {
                     
                     console.log(error);
+                    console.log('error');
+                    alert('Data not found!!');
                     reject(error);
                     
                 },
+            }).done(function () {
                 
+                $.ajax({
+                    
+                    
+                    url: URL2,
+                    async: false,
+                    type: "get",
+                    dataType: "json",
+                    
+                    success: function (result) {
+                        
+                        
+                        console.log(result);
+                        setArtistEvents(result);
+                        console.log(artistEvents);
+                        
+                        
+                    },
+                    
+                    error: function (error) {
+                        
+                        reject(error);
+                        
+                    },
+                    
+                    
+                })
                 
-            });
+            })
             
             
         });
@@ -50,8 +85,6 @@ function App() {
     const handleSubmit = (e) => {
         
         e.preventDefault();
-        //  setArtistName(e.target.value);
-        console.log(artistName);
         
     }
     
@@ -72,7 +105,7 @@ function App() {
                     
                     <form onSubmit={handleSubmit}>
                         
-                        <label>Artist name:</label>
+                        
                         <input
                             placeholder="search artist"
                             type="text"
@@ -82,7 +115,7 @@ function App() {
                         
                         />
                         
-                        <button onClick={fetchData}>SUBMIT</button>
+                        <button className="searchBtn" onClick={fetchData}>Search</button>
                     
                     
                     </form>
@@ -92,6 +125,11 @@ function App() {
             
             
             </section>
+            
+            
+            {btnClick ?
+                <DisplayInformation artistInformationData={artistInformation} artistEventData={artistEvents}/> : null}
+        
         </div>
     );
 }

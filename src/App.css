@@ -1,15 +1,184 @@
+*{
+
+  font-family: Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
 .title{
 
-  background-color: crimson;
-  height: 120px;
-  width: auto;
-  top: auto;
+  background-image: url("b_img.png");
+  border-bottom: none;
+  font-size: 16px;
+  margin-bottom: 0;
+  list-style-type: none;
+  top: 0%;
+  margin-top: -22px;
+  padding: 0px 15px;
+  height: 200px;
+  width: 100%;
 }
 
 .heading{
 
   color: white;
-  font-family: Helvetica, sans-serif;
+  text-align: center;
+}
+
+img{
+
+  border-radius: 50%;
+  border:2px solid blue;
+  alignment: right;
+}
+
+.App{
+
+  background-color: whitesmoke;
+  height: auto;
+}
+
+form{
+
+  margin-top: 10px;
+}
+
+input{
+
+  width: 50%;
+  height: 30px;
+  border-radius:10px;
+  border: 1px solid darkblue;
+  margin-left: 10px;
+  font-size: 16px;
+  outline: none;
+
+  /*box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);*/
+
+}
+
+input:hover{
+
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+
+}
+
+.searchBtn{
+
+  max-width: 100%;
+  overflow-x: auto;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: darkblue;
+  color: whitesmoke;
+  display: inline;
+  line-height: 1.4;
+  outline: none;
+  min-width: 110px;
+  min-height: 30px;
+  padding: 4px 1px;
+  vertical-align: middle;
+  position: relative;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.searchBtn:hover{
+
+  background-color: cornflowerblue;
+}
+
+.card_type1{
+
+  margin-top: 20px;
+  background-color:ghostwhite;
+  height: 180px;
+  width: 400px;
+  margin-left: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2)
+  /*box-shadow: 5px 10px #dcdcdc;*/
+
+}
+
+.details{
+
+  padding: 20px;
+
+}
+
+.text{
+
+  color: blue;
+
+}
+
+
+section{
+
+  margin-left: 10px;
+}
+
+
+
+.card_type2{
+
+
+  margin-top: 10px;
+  background-color:ghostwhite;
+  height: 300px;
+  width: 400px;
+  margin-left: 10px;
+  display: inline-flex;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2)
+
+}
+
+.row1 {
+
+  display: inline-flex;
 
 
 }
+
+.a1{
+
+  margin-left: 25px;
+  font-width: bold;
+
+}
+
+.a2{
+
+  margin-left: 150px;
+  font-weight: bold;
+}
+
+.b1{
+
+  margin-top:5px;
+}
+
+.b2{
+
+  margin-top:-32px;
+  margin-left: 220px;
+}
+
+
+
+.card_type1:hover , .card_type2:hover{
+
+
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+h4{
+
+  margin-left: 10px;
+
+}
+
+
+
+
+

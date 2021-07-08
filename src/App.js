@@ -94,7 +94,6 @@ function App() {
             <header className="title">
                 
                 <h1 className="heading">Event Getter</h1>
-                <p className="description">Tracking all the events happening near you!!</p>
             
             
             </header>

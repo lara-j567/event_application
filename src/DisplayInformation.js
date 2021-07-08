@@ -9,9 +9,11 @@ function DisplayInformation({artistInformationData, artistEventData}) {
             
             <section>
                 
+                {/*displaying artists data*/}
                 <div className="card_type1">
                     
                     <div className="details">
+                        
                         
                         <img src={artistInformationData.image_url} height="50" width="50" align="left"/>
                         <p className="text">{artistInformationData.name}</p>
@@ -25,6 +27,8 @@ function DisplayInformation({artistInformationData, artistEventData}) {
             
             
             <section>
+                
+                {/*displaying artists events data*/}
                 <h1 className="text">{artistInformationData.upcoming_event_count} upcoming events</h1>
                 
                 {
@@ -59,17 +63,16 @@ function DisplayInformation({artistInformationData, artistEventData}) {
                                         
                                         <p className="a1">Venue</p>
                                         <p className="a2">Date</p>
-                                        
-                                        
-                                        
+                                    
+                                    
                                     </div>
-    
+                                    
                                     <div className="row4">
-        
+                                        
                                         <p className="a1 b1">{data.venue.location}</p>
                                         <p className="b2">{data.datetime}</p>
-    
-    
+                                    
+                                    
                                     </div>
                                 
                                 </div>
@@ -84,12 +87,12 @@ function DisplayInformation({artistInformationData, artistEventData}) {
                     })
                     
                     
-                    }
-                    
-                    </section>
-                    
-                    </div>
-                    );
                 }
-                
-                export default DisplayInformation;
+            
+            </section>
+        
+        </div>
+    );
+}
+
+export default DisplayInformation;

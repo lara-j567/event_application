@@ -19,6 +19,7 @@ function App() {
         const URL1 = `https://rest.bandsintown.com/artists/${artistName}?app_id=${app_id}`;
         const URL2 = `https://rest.bandsintown.com/artists/${artistName}/events?app_id=${app_id}`;
         
+        /*getting the data of artist and then the events*/
         return new Promise((resolve, reject) => {
             
             
@@ -126,6 +127,7 @@ function App() {
             </section>
             
             
+            {/*if data is found for artist and render the display component*/}
             {btnClick ?
                 <DisplayInformation artistInformationData={artistInformation} artistEventData={artistEvents}/> : null}
         
